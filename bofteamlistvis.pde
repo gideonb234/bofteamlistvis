@@ -5,14 +5,11 @@
 
 void setup() {
   // load unicode font here (if needed)
-  size(400,250);
+  size(960,960);
   Table bofteamlist = loadTable("csv-dataset.csv", "header");
-  fileLoader(bofteamlist);
+  fileLoader(bofteamlist);  
 }
 
 void draw() {
-  // test jp here
-  fill(0);
-  background(255);
-  text("", width/2, height/2);
+  drawLineGraph();
 }
