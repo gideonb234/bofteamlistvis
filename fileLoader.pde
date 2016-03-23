@@ -22,6 +22,5 @@ void fileLoader(Table file) {
       } 
     }
     arrayCounter = 1;
-    println(teamData);
   }
 }
