@@ -3,10 +3,11 @@
   otherwise use the gaps to show what years they did not participate in.
 */
 
-
 void setup() {
   // load unicode font here (if needed)
   size(400,250);
+  Table bofteamlist = loadTable("csv-dataset.csv", "header");
+  fileLoader(bofteamlist);
 }
 
 void draw() {
