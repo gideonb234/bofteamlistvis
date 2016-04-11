@@ -3,7 +3,7 @@
   otherwise use the gaps to show what years they did not participate in.
 */
 
-String[] teamList;
+String[] teamList, yearList, team;
 Table bofteamlist;
 
 void setup() {
@@ -11,12 +11,20 @@ void setup() {
   size(960,960);
   bofteamlist = loadTable("csv-dataset.csv", "header");
   teamList = listTeams(bofteamlist);
-  lineGraphLoader(teamList[20]);
+  yearList = listYears(bofteamlist);
+  //println(yearList);
 }
 
 void draw() {
   background(255);
   drawTeamList();
+  drawYearList(350);
+  //for (int i = 0; i<23;i++) {
+  //  String[] teamYearData = yearLoader(teamList[i]);
+  //  drawLineGraph(teamYearData);
+  //}
+  String [] teamYearData = yearLoader(teamList[1]);
+  drawLineNodes(teamYearData, 320);
   //drawLineGraph();
 }
 
@@ -24,31 +32,16 @@ void draw() {
 /* Load the year data for the row based on the title of the row
 */
 
-String[] lineGraphLoader(String teamName) {
-  String[] yearData = new String[12];
+String[] yearLoader(String teamName) {
   
-  for (TableRow row: bofteamlist.rows()){
-    if (row.getString(0) == teamName) {
-      println(teamName);
+  String[] yearData = new String[bofteamlist.getColumnCount()]; 
+  
+  for (TableRow row : bofteamlist.rows()) {
+    row = bofteamlist.findRow(teamName, "Team Name");
+    for (int i = 0;i<row.getColumnCount();i++) {
+      yearData[i] = row.getString(i);
     }
   }
-  
-  //for (TableRow row : file.rows()) {
-    
-  //  String teamName = row.getString("Team Name");
-  //  teamData[0] = teamName;
-  //  int arrayCounter = 1;
-  //  for (int i = 1; i < file.getColumnCount();i++) {
-  //    if (row.getString(i).equals("Y")) {
-  //      teamData[arrayCounter] = row.getColumnTitle(i);
-  //      arrayCounter++;
-  //    } else if (row.getString(i).equals("N")) {
-  //     teamData[arrayCounter] = row.getString(i);
-  //     arrayCounter++;
-  //    } 
-  //  }
-  //  arrayCounter = 1;
-  //}
-  
+  //println(yearData);
   return yearData;
 }
