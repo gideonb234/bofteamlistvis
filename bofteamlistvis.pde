@@ -4,6 +4,7 @@
 */
 
 String[] teamList, yearList, team;
+int[] teamHeight;
 Table bofteamlist;
 
 void setup() {
@@ -11,6 +12,7 @@ void setup() {
   size(960,960);
   bofteamlist = loadTable("csv-dataset.csv", "header");
   teamList = listTeams(bofteamlist);
+  teamHeight = new int[teamList.length];  
   yearList = listYears(bofteamlist);
   //println(yearList);
 }
@@ -18,14 +20,13 @@ void setup() {
 void draw() {
   background(255);
   drawTeamList();
-  drawYearList(350);
+  println(teamHeight);
   //for (int i = 0; i<23;i++) {
-  //  String[] teamYearData = yearLoader(teamList[i]);
-  //  drawLineGraph(teamYearData);
+  // int nHeight = 960/teamList.length;
+  // String[] teamYearData = yearLoader(teamList[i]);
+  // drawLineNodes(teamYearData,(nHeight*(i+1))-25);
+  // drawYearList(nHeight*(i+1));
   //}
-  String [] teamYearData = yearLoader(teamList[1]);
-  drawLineNodes(teamYearData, 320);
-  //drawLineGraph();
 }
 
 /**

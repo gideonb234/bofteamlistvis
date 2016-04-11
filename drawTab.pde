@@ -8,6 +8,7 @@ void drawTeamList() {
   for (int i=0;i<teamList.length;i++) {
    //int j = i-1;
    fill(150);
+   teamHeight[i]=nHeight*(i+1);
    rect(5, nHeight*(i+1)-20,250,25);
    fill(255);
    text(teamList[i],10,nHeight*(i+1));
@@ -33,11 +34,11 @@ void drawLineNodes(String[] parsedRow, int nHeight) {
   for (int i = 1;i<parsedRow.length;i++) {
     fill(0);
     if (parsedRow[i].equals("Y")) {
-      ellipse((nWidth*i)+250,nHeight,10,10);
-      int currentNodeX = nWidth*i;
+      ellipse((nWidth*i)+265,nHeight,10,10);
+      int currentNodeX = (nWidth*i)+265;
       if (i+1 >= 12) { /* do nothing */ } else {
         if(parsedRow[i+1].equals("Y")) {
-          int nextNodeX = nWidth*(i+1);
+          int nextNodeX = (nWidth*(i+1))+265;
           drawConnectors(currentNodeX, nextNodeX, nHeight);
         } else { /* do nothing */}
       }
@@ -51,7 +52,7 @@ void drawConnectors(int currentNodeX, int nextNodeX, int chartHeight) {
     draw the lines connecting the line graph here
   */
   fill(122,100,95);
-  line(currentNodeX+250, chartHeight, nextNodeX+250, chartHeight);
+  line(currentNodeX, chartHeight, nextNodeX, chartHeight);
 }
 
 void mouseClicked() {
