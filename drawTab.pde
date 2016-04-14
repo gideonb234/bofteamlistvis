@@ -2,15 +2,15 @@ void drawTeamList() {
   /*
     Draw team list on left hand side of the screen
   */
-  fill(0,0,0);
+  fill(97,194,252);
   rect(0,0,260,960);
   int nHeight = 960/teamList.length;
   for (int i=0;i<teamList.length;i++) {
    //int j = i-1;
-   fill(150);
+   fill(252,188,8);
    teamHeight[i]=nHeight*(i+1);
    rect(5, nHeight*(i+1)-20,250,25);
-   fill(255);
+   fill(52,51,48);
    text(teamList[i],10,nHeight*(i+1));
   }
 }
@@ -55,10 +55,6 @@ void drawConnectors(int currentNodeX, int nextNodeX, int chartHeight) {
   line(currentNodeX, chartHeight, nextNodeX, chartHeight);
 }
 
-void mouseClicked() {
-  /*
-    when a team is clicked, I want them to draw line graph ye
-    maybe do it as a map??
-  */
+void teamColourSelect(int count) {
   
 }

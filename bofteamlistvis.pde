@@ -6,27 +6,30 @@
 String[] teamList, yearList, team;
 int[] teamHeight;
 Table bofteamlist;
+boolean[] isClicked;
+int teamClickedCount;
 
 void setup() {
   // load unicode font here (if needed)
   size(960,960);
   bofteamlist = loadTable("csv-dataset.csv", "header");
   teamList = listTeams(bofteamlist);
-  teamHeight = new int[teamList.length];  
+  teamHeight = new int[teamList.length];
+  isClicked = new boolean[teamList.length];
   yearList = listYears(bofteamlist);
+  for (int i=0;i<teamList.length;i++) {
+    isClicked[i] = false;
+  }
   //println(yearList);
 }
 
 void draw() {
   background(255);
   drawTeamList();
-  println(teamHeight);
-  //for (int i = 0; i<23;i++) {
-  // int nHeight = 960/teamList.length;
-  // String[] teamYearData = yearLoader(teamList[i]);
-  // drawLineNodes(teamYearData,(nHeight*(i+1))-25);
-  // drawYearList(nHeight*(i+1));
-  //}
+  drawYearList(20);
+  for (int i = 0; i<teamList.length;i++) {
+    isDrawn(i);
+  }
 }
 
 /**
@@ -39,6 +42,21 @@ String[] yearLoader(String teamName) {
   
   for (TableRow row : bofteamlist.rows()) {
     row = bofteamlist.findRow(teamName, "Team Name");
+    for (int i = 0;i<row.getColumnCount();i++) {
+      yearData[i] = row.getString(i);
+    }
+  }
+  //println(yearData);
+  return yearData;
+}
+
+String[] yearLoader(int teamNum) {
+  
+  String[] yearData = new String[bofteamlist.getColumnCount()]; 
+  
+  for (TableRow row : bofteamlist.rows()) {
+    teamNum = teamNum;
+    row = bofteamlist.getRow(teamNum);
     for (int i = 0;i<row.getColumnCount();i++) {
       yearData[i] = row.getString(i);
     }
