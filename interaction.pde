@@ -217,6 +217,84 @@ void mouseClicked() {
   }
 }
 
+void mouseMoved() {
+  cursor(ARROW);
+  if (mouseX > 5 && mouseX < 256) {
+    /*
+      I wish there was a less stupid way to do this
+    */
+    if (mouseY > 25 && mouseY < 50) {
+         cursor(HAND);
+    }
+    if (mouseY > 67 && mouseY < 89) {
+         cursor(HAND);
+    }
+    if (mouseY > 108 && mouseY < 130) {
+         cursor(HAND);
+    }
+    if (mouseY > 149 && mouseY < 171) {
+         cursor(HAND);
+    }
+    if (mouseY > 190 && mouseY < 212) {
+         cursor(HAND);
+    }
+    if (mouseY > 231 && mouseY < 253) {
+         cursor(HAND);
+    }
+    if (mouseY > 272 && mouseY < 294) {
+         cursor(HAND);
+    }
+    if (mouseY > 313 && mouseY < 335) {
+         cursor(HAND);
+    }
+    if (mouseY > 354 && mouseY < 376) {
+         cursor(HAND);
+    }
+    if (mouseY > 395 && mouseY < 417) {
+         cursor(HAND);
+    }
+    if (mouseY > 436 && mouseY < 458) {
+         cursor(HAND);
+    }
+    if (mouseY > 477 && mouseY < 499) {
+         cursor(HAND);
+    }
+    if (mouseY > 518 && mouseY < 540) {
+         cursor(HAND);
+    }
+    if (mouseY > 559 && mouseY < 581) {
+         cursor(HAND);
+    }
+    if (mouseY > 600 && mouseY < 622) {
+         cursor(HAND);
+    }
+    if (mouseY > 641 && mouseY < 663) {
+         cursor(HAND);
+    }
+    if (mouseY > 682 && mouseY < 704) {
+         cursor(HAND);
+    }
+    if (mouseY > 723 && mouseY < 745) {
+         cursor(HAND);
+    }
+    if (mouseY > 764 && mouseY < 786) {
+         cursor(HAND);
+    }
+    if (mouseY > 805 && mouseY < 827) {
+         cursor(HAND);
+    }
+    if (mouseY > 846 && mouseY < 868) {
+         cursor(HAND);
+    }
+    if (mouseY > 887 && mouseY < 909) {
+         cursor(HAND);
+    }
+    if (mouseY > 928 && mouseY < 950) {
+         cursor(HAND);
+    }
+  }
+}
+
 void teamButtons(int teamNum) {
   /*
     Get a button for each team and prep a graph based on it (also increment a global count var for each click on/off)
