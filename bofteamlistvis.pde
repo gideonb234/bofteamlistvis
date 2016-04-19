@@ -4,7 +4,7 @@
 */
 
 String[] teamList, yearList, team;
-int[] teamHeight;
+int[] teamHeight, yearWidths;
 Table bofteamlist;
 boolean[] isClicked;
 int teamClickedCount;
@@ -17,6 +17,7 @@ void setup() {
   teamHeight = new int[teamList.length];
   isClicked = new boolean[teamList.length];
   yearList = listYears(bofteamlist);
+  yearWidths = yearWidths(yearList);
   for (int i=0;i<teamList.length;i++) {
     isClicked[i] = false;
   }
@@ -84,4 +85,14 @@ String[] listYears(Table teams) {
     yearList = teams.getColumnTitles();
    }
    return yearList;
+}
+
+int[] yearWidths(String[] years) {
+  int[] yearWidthData = new int[years.length];
+  int nWidth = (660/years.length);
+  for (int i=1;i<years.length;i++){
+    fill(0);
+    yearWidthData[i] = ((nWidth*i)+250);
+  }
+  return yearWidthData;
 }

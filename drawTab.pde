@@ -23,15 +23,15 @@ void drawButtons() {
   fill(252,188,8);
   rect(5, 250,250,25);
   fill(52,51,48);
-  text("Sort by Year",10,270);
+  text("Sort by Years (First - Last)",10,270);
   fill(252,188,8);
   rect(5, 300,250,25);
   fill(52,51,48);
-  text("Sort by Participation",10,320);
+  text("Sort by Most Concurrent Participation",10,320);
   fill(252,188,8);
   rect(5, 350,250,25);
   fill(52,51,48);
-  text("Sort by Concurrent Years",10,370);
+  text("Sort by Most Years Participated",10,370);
 }
 
 void drawYearList(int nHeight) {
@@ -72,8 +72,4 @@ void drawConnectors(int currentNodeX, int nextNodeX, int chartHeight) {
   */
   fill(122,100,95);
   line(currentNodeX, chartHeight, nextNodeX, chartHeight);
-}
-
-void findYear(int x) {
-  
 }

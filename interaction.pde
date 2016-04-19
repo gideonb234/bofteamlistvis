@@ -49,7 +49,7 @@ void sortButtons(int functionNum) {
       sortByYear();
       break;
     case 2:
-      sortByEarliestParticipation();
+      sortByConcurrentParticipation();
       break;
     case 3:
       sortByMostParticipation();
