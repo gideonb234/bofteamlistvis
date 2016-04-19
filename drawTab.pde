@@ -1,18 +1,37 @@
-void drawTeamList() {
-  /*
-    Draw team list on left hand side of the screen
-  */
+//void drawTeamList() {
+//  /*
+//    Draw team list on left hand side of the screen
+//  */
+//  fill(97,194,252);
+//  rect(0,0,260,960);
+//  int nHeight = 960/teamList.length;
+//  for (int i=0;i<teamList.length;i++) {
+//   //int j = i-1;
+//   fill(252,188,8);
+//   teamHeight[i]=nHeight*(i+1);
+//   rect(5, nHeight*(i+1)-20,250,25);
+//   fill(52,51,48);
+//   text(teamList[i],10,nHeight*(i+1));
+//  }
+//}
+
+// draw 4 buttons here which will lead to different onlcicks 
+void drawButtons() { 
   fill(97,194,252);
   rect(0,0,260,960);
-  int nHeight = 960/teamList.length;
-  for (int i=0;i<teamList.length;i++) {
-   //int j = i-1;
-   fill(252,188,8);
-   teamHeight[i]=nHeight*(i+1);
-   rect(5, nHeight*(i+1)-20,250,25);
-   fill(52,51,48);
-   text(teamList[i],10,nHeight*(i+1));
-  }
+  // buttons
+  fill(252,188,8);
+  rect(5, 250,250,25);
+  fill(52,51,48);
+  text("Sort by Year",10,270);
+  fill(252,188,8);
+  rect(5, 300,250,25);
+  fill(52,51,48);
+  text("Sort by Participation",10,320);
+  fill(252,188,8);
+  rect(5, 350,250,25);
+  fill(52,51,48);
+  text("Sort by Concurrent Years",10,370);
 }
 
 void drawYearList(int nHeight) {
@@ -55,6 +74,6 @@ void drawConnectors(int currentNodeX, int nextNodeX, int chartHeight) {
   line(currentNodeX, chartHeight, nextNodeX, chartHeight);
 }
 
-void teamColourSelect(int count) {
+void findYear(int x) {
   
 }

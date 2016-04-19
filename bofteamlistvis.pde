@@ -25,10 +25,14 @@ void setup() {
 
 void draw() {
   background(255);
-  drawTeamList();
+  drawButtons();
   drawYearList(20);
+  // draw the things here
   for (int i = 0; i<teamList.length;i++) {
-    isDrawn(i);
+    String[] teamData = yearLoader(i);
+    int nHeight = 960/teamList.length;
+    teamHeight[i]=nHeight*(i+1);
+    drawLineNodes(teamData,teamHeight[i]);
   }
 }
 
@@ -55,7 +59,6 @@ String[] yearLoader(int teamNum) {
   String[] yearData = new String[bofteamlist.getColumnCount()]; 
   
   for (TableRow row : bofteamlist.rows()) {
-    teamNum = teamNum;
     row = bofteamlist.getRow(teamNum);
     for (int i = 0;i<row.getColumnCount();i++) {
       yearData[i] = row.getString(i);
@@ -63,4 +66,22 @@ String[] yearLoader(int teamNum) {
   }
   //println(yearData);
   return yearData;
+}
+
+String[] listTeams(Table teams) {
+  String[] teamList = new String[teams.getRowCount()];
+   for (int i = 0; i<teams.getRowCount();i++) {
+    TableRow row = teams.getRow(i);
+    String teamName = row.getString("Team Name");
+    teamList[i] = teamName;
+   }
+   return teamList;
+}
+
+String[] listYears(Table teams) {
+  String[] yearList = new String[teams.getColumnCount()];
+  for (int i = 1; i<teams.getRowCount();i++) {
+    yearList = teams.getColumnTitles();
+   }
+   return yearList;
 }
