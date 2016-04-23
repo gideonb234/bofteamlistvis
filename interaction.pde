@@ -19,6 +19,10 @@ void mouseClicked() {
      sortButtons(3);
      println("3");
    }
+   if (mouseY > 400 && mouseY < 425) {
+     sortButtons(4);
+     println("4");
+   }
   }
 }
 
@@ -37,6 +41,9 @@ void mouseMoved() {
    if (mouseY > 350 && mouseY < 375) {
      cursor(HAND);
    }
+   if (mouseY > 400 && mouseY < 425) {
+     cursor(HAND);
+   }
   }
 }
 
@@ -46,23 +53,18 @@ void sortButtons(int functionNum) {
   */
   switch(functionNum) {
     case 1:
-      sortByYear();
+      selectedTable = sortYearList;
       break;
     case 2:
-      sortByConcurrentParticipation();
+      selectedTable = ConcurrentList;
       break;
     case 3:
-      sortByMostParticipation();
+      selectedTable = ParticipationList;
+      break;
+    case 4:
+      selectedTable = AlphabetList;
       break;
     default:
-      sortByYear();
       break;
-  }
-}
-
-void isDrawn(int teamNum) {
-  if (isClicked[teamNum]) {
-    String[] teamData = yearLoader(teamNum);
-    drawLineNodes(teamData,teamHeight[teamNum]);
   }
 }

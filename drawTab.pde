@@ -32,6 +32,10 @@ void drawButtons() {
   rect(5, 350,250,25);
   fill(52,51,48);
   text("Sort by Most Years Participated",10,370);
+  fill(252,188,8);
+  rect(5, 400,250,25);
+  fill(52,51,48);
+  text("Sort Alphabetically",10,420);
 }
 
 void drawYearList(int nHeight) {
@@ -63,6 +67,16 @@ void drawLineNodes(String[] parsedRow, int nHeight) {
       }
     }
   }
+}
+
+void drawGraph(Table table) {
+  for (int i = 0; i<teamList.length;i++) {  
+   String[] teamData = yearLoader(table, i);
+   int nHeight = 960/teamList.length;
+   teamHeight[i]=nHeight*(i+1);
+   drawLineNodes(teamData,teamHeight[i]);
+  };
+  teamList = listTeams(table);
 }
 
 // give positions of X for currentNode and nextNode

@@ -5,7 +5,8 @@
 
 String[] teamList, yearList, team;
 int[] teamHeight, yearWidths;
-Table bofteamlist;
+// i wish it wasn't as annoying as this but it is
+Table bofteamlist, sortYearList, ParticipationList, ConcurrentList, AlphabetList, selectedTable;
 boolean[] isClicked;
 int teamClickedCount;
 
@@ -13,6 +14,10 @@ void setup() {
   // load unicode font here (if needed)
   size(960,960);
   bofteamlist = loadTable("csv-dataset.csv", "header");
+  AlphabetList = loadTable("alphabet-dataset.csv", "header");
+  sortYearList = loadTable("year-dataset.csv", "header");
+  ParticipationList = loadTable("most-participated.csv", "header");
+  ConcurrentList = loadTable("most-concurrent.csv", "header");
   teamList = listTeams(bofteamlist);
   teamHeight = new int[teamList.length];
   isClicked = new boolean[teamList.length];
@@ -22,6 +27,7 @@ void setup() {
     isClicked[i] = false;
   }
   //println(yearList);
+  selectedTable = bofteamlist;
 }
 
 void draw() {
@@ -29,12 +35,7 @@ void draw() {
   drawButtons();
   drawYearList(20);
   // draw the things here
-  for (int i = 0; i<teamList.length;i++) {
-    String[] teamData = yearLoader(i);
-    int nHeight = 960/teamList.length;
-    teamHeight[i]=nHeight*(i+1);
-    drawLineNodes(teamData,teamHeight[i]);
-  }
+  drawGraph(selectedTable);
 }
 
 /**
@@ -55,12 +56,12 @@ String[] yearLoader(String teamName) {
   return yearData;
 }
 
-String[] yearLoader(int teamNum) {
+String[] yearLoader(Table table, int teamNum) {
   
-  String[] yearData = new String[bofteamlist.getColumnCount()]; 
+  String[] yearData = new String[table.getColumnCount()]; 
   
-  for (TableRow row : bofteamlist.rows()) {
-    row = bofteamlist.getRow(teamNum);
+  for (TableRow row : table.rows()) {
+    row = table.getRow(teamNum);
     for (int i = 0;i<row.getColumnCount();i++) {
       yearData[i] = row.getString(i);
     }
