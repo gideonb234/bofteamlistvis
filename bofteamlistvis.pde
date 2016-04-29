@@ -1,3 +1,5 @@
+import org.gicentre.utils.gui.*;
+
 /*
   Create a line graph that connects if a team enters in consecutive years, 
   otherwise use the gaps to show what years they did not participate in.
@@ -9,6 +11,8 @@ int[] teamHeight, yearWidths;
 Table bofteamlist, sortYearList, ParticipationList, ConcurrentList, AlphabetList, selectedTable;
 boolean[] isClicked;
 int teamClickedCount;
+Tooltip node_info;
+PFont tooltip_font;
 
 void setup() {
   // load unicode font here (if needed)
@@ -19,7 +23,7 @@ void setup() {
   ParticipationList = loadTable("most-participated.csv", "header");
   ConcurrentList = loadTable("most-concurrent.csv", "header");
   teamList = listTeams(bofteamlist);
-  teamHeight = new int[teamList.length];
+  teamHeight = new int[teamList.length+1];
   isClicked = new boolean[teamList.length];
   yearList = listYears(bofteamlist);
   yearWidths = yearWidths(yearList);
@@ -28,6 +32,9 @@ void setup() {
   }
   //println(yearList);
   selectedTable = bofteamlist;
+  // load tooltips
+  //PFont JPFont = createFont("Mamelon.otf",48);
+  node_info = new Tooltip(this,loadFont("jpfont.vlw"), 16, 150);
 }
 
 void draw() {
@@ -36,6 +43,9 @@ void draw() {
   drawYearList(20);
   // draw the things here
   drawGraph(selectedTable);
+  node_info.setIsActive(false);
+  chooseHeight(selectedTable);
+  showToolTip();
 }
 
 /**
