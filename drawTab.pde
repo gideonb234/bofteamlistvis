@@ -17,6 +17,8 @@
 
 // draw 4 buttons here which will lead to different onlcicks 
 void drawButtons() { 
+  textFont(serif);
+  textSize(15);
   fill(97,194,252);
   rect(0,0,260,960);
   // buttons
@@ -57,7 +59,7 @@ void drawLineNodes(String[] parsedRow, int nHeight) {
   for (int i = 1;i<parsedRow.length;i++) {
     fill(0);
     if (parsedRow[i].equals("Y")) {
-      ellipse((nWidth*i)+265,nHeight,10,10);
+      ellipse((nWidth*i)+265,nHeight,13,13);
       int currentNodeX = (nWidth*i)+265;
       if (i+1 >= 12) { /* do nothing */ } else {
         if(parsedRow[i+1].equals("Y")) {
@@ -90,14 +92,34 @@ void drawConnectors(int currentNodeX, int nextNodeX, int chartHeight) {
 
 void drawTitle() {
   fill(52,51,48);
-  text("BMS of Fighters Team",20,150);
-  text("Visualisation",20,175);
+  textFont(monospace);
+  textSize(20);
+  text("BMS of Fighters Team",10,150);
+  text("Visualisation",10,175);
 }
 
 void drawInstructions() {
   fill(52,51,48);
-  text("Click on the buttons", 20, 500);
-  text("to sort the teams in different ways", 20, 525);
-  text("Mouse over the nodes", 20, 550);
-  text("to see the team names", 20, 575);
+  textFont(serif);
+  textSize(20);
+  text("Click on the buttons", 25, 500);
+  text("to sort the teams", 25, 525);
+  text("Mouse over the nodes", 25, 575);
+  text("to see the team names", 25, 600);
+}
+
+void drawKey() {
+  fill(52,51,48);
+  textFont(serif);
+  textSize(15);
+  text("Nodes show what years the", 25, 650);
+  text("teams participated in and lines", 25, 670);
+  text("show when they participated in", 25, 690);
+  text("consecutive years.", 25, 710);
+  ellipse(25, 730, 13, 13); 
+  text("Singular node", 80, 735);
+  ellipse(25, 760, 13, 13);
+  line(25, 760, 70, 760);
+  ellipse(70, 760, 13, 13);
+  text("Conseuctive year", 80, 765);
 }

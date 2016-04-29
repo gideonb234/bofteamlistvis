@@ -59,10 +59,10 @@ String chooseHeight(Table selTable) {
      int nHeight = 960/teamList.length;
      teamHeight[i]=nHeight*(i+1);
      if (mouseX > 305 && mouseX < 900) {
-       if (mouseY > teamHeight[i]-5 && mouseY < teamHeight[i+1]-5) {
+       if (mouseY > teamHeight[i]-8 && mouseY < teamHeight[i+1]-8) {
          teamName = teamList[i];
        }
-      if (mouseY >= 948) {
+      if (mouseY >= 943) {
            teamName = teamList[33];
        }
      }

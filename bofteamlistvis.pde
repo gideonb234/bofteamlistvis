@@ -12,7 +12,7 @@ Table bofteamlist, sortYearList, ParticipationList, ConcurrentList, AlphabetList
 boolean[] isClicked;
 int teamClickedCount;
 Tooltip node_info;
-PFont tooltip_font;
+PFont tooltip_font, monospace, serif;
 
 void setup() {
   // load unicode font here (if needed)
@@ -27,6 +27,8 @@ void setup() {
   isClicked = new boolean[teamList.length];
   yearList = listYears(bofteamlist);
   yearWidths = yearWidths(yearList);
+  monospace = loadFont("Monospace.vlw");
+  serif = loadFont("Serif-48.vlw");
   for (int i=0;i<teamList.length;i++) {
     isClicked[i] = false;
   }
@@ -40,9 +42,10 @@ void setup() {
 void draw() {
   background(255);
   drawButtons();
-  drawTitle();
   drawInstructions();
-  drawYearList(20);
+  drawYearList(15);
+  drawTitle();
+  drawKey();
   // draw the things here
   drawGraph(selectedTable);
   node_info.setIsActive(false);
