@@ -40,6 +40,8 @@ void setup() {
 void draw() {
   background(255);
   drawButtons();
+  drawTitle();
+  drawInstructions();
   drawYearList(20);
   // draw the things here
   drawGraph(selectedTable);

@@ -87,3 +87,17 @@ void drawConnectors(int currentNodeX, int nextNodeX, int chartHeight) {
   fill(122,100,95);
   line(currentNodeX, chartHeight, nextNodeX, chartHeight);
 }
+
+void drawTitle() {
+  fill(52,51,48);
+  text("BMS of Fighters Team",20,150);
+  text("Visualisation",20,175);
+}
+
+void drawInstructions() {
+  fill(52,51,48);
+  text("Click on the buttons", 20, 500);
+  text("to sort the teams in different ways", 20, 525);
+  text("Mouse over the nodes", 20, 550);
+  text("to see the team names", 20, 575);
+}
